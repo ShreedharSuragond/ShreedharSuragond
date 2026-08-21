@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Shreedhar Suragond — Software Engineer portfolio">
+<title>Shreedhar Suragond · Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#060812; --panel:#0b1020; --panel2:#0e1528; --text:#eef4ff; --muted:#8995ad;
+  --line:rgba(148,163,184,.15); --blue:#60a5fa; --cyan:#67e8f9; --violet:#a78bfa;
+  --green:#6ee7b7; --max:1180px; --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:rgba(96,165,250,.3)}
+#grid{position:fixed;inset:0;z-index:-5;opacity:.23;background-image:linear-gradient(rgba(148,163,184,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.07) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:-3;background:radial-gradient(circle,rgba(59,130,246,.13),transparent 68%);transform:translate(-50%,-50%)}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1050px,calc(100% - 28px));z-index:15;display:flex;align-items:center;justify-content:space-between;padding:12px 16px 12px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(6,8,18,.68);backdrop-filter:blur(18px);box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.logo{font-family:"JetBrains Mono";font-weight:600;color:var(--cyan);letter-spacing:-.05em}
+.navlinks{display:flex;gap:24px;color:#aeb8cc;font-size:14px}
+.navlinks a{transition:.25s} .navlinks a:hover{color:white}
+.navbtn{padding:8px 13px;border:1px solid var(--line);border-radius:11px;font-size:13px;color:#dbeafe}
+.hero{min-height:100vh;display:grid;align-items:center;padding:140px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid rgba(103,232,249,.16);border-radius:999px;background:rgba(103,232,249,.04);font:12px "JetBrains Mono";color:var(--cyan);margin-bottom:22px}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 15px var(--green);animation:pulse 1.7s infinite}
+h1{font-size:clamp(52px,7.2vw,96px);line-height:.94;letter-spacing:-.075em;max-width:850px}
+.gradient{background:linear-gradient(100deg,#fff 20%,#9bc7ff 55%,#9b8cff);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;margin:26px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border-radius:13px;border:1px solid var(--line);transition:.25s;cursor:pointer}
+.btn.primary{background:#eaf3ff;color:#07101e;font-weight:700;border-color:#eaf3ff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.meta{display:flex;gap:24px;margin-top:28px;color:#7e8aa1;font:12px "JetBrains Mono";flex-wrap:wrap}
+.terminal{position:relative;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(16,24,44,.93),rgba(7,11,23,.95));box-shadow:0 30px 100px rgba(0,0,0,.4);overflow:hidden;transform:perspective(1000px) rotateY(-5deg);transition:transform .3s}
+.termbar{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px}
+.termbar i{width:9px;height:9px;border-radius:50%;background:#475569}
+.term-title{margin-left:8px;font:11px "JetBrains Mono";color:#65738d}
+.term-body{padding:25px;font:13px/2 "JetBrains Mono";min-height:380px}
+.prompt{color:var(--cyan)} .ok{color:var(--green)} .dim{color:#64748b}
+.cursor{display:inline-block;width:8px;height:16px;background:var(--cyan);vertical-align:-3px;animation:blink 1s steps(2) infinite}
+.section{padding:120px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:44px}
+.kicker{font:12px "JetBrains Mono";color:var(--cyan);margin-bottom:9px}
+h2{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.055em}
+.section-head p{max-width:420px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:100px}
+.stat{padding:28px;border-right:1px solid var(--line);background:rgba(255,255,255,.015)}
+.stat:last-child{border-right:0} .stat strong{display:block;font-size:34px;letter-spacing:-.05em} .stat span{color:var(--muted);font-size:13px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{position:relative;border:1px solid var(--line);border-radius:22px;padding:28px;background:linear-gradient(145deg,rgba(17,25,46,.8),rgba(8,12,24,.8));overflow:hidden;transition:transform .3s,border-color .3s}
+.card:before{content:"";position:absolute;inset:-100px;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(96,165,250,.14),transparent 28%);opacity:0;transition:.3s}
+.card:hover:before{opacity:1} .card:hover{border-color:rgba(96,165,250,.35);transform:translateY(-7px)}
+.card>*{position:relative}
+.project-no{font:11px "JetBrains Mono";color:#59677f}
+.card h3{font-size:26px;margin:42px 0 9px;letter-spacing:-.04em}
+.card p{color:var(--muted);font-size:14px;min-height:66px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px} .tag{padding:6px 9px;border:1px solid var(--line);border-radius:8px;font:10px "JetBrains Mono";color:#aeb9cc}
+.arrow{position:absolute;right:24px;top:23px;font-size:20px;color:#73819a;transition:.3s} .card:hover .arrow{transform:translate(4px,-4px);color:white}
+.arch{border:1px solid var(--line);border-radius:26px;padding:35px;background:rgba(10,15,29,.65);overflow:hidden}
+.arch-flow{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:8px}
+.node{padding:20px 13px;text-align:center;border:1px solid var(--line);border-radius:16px;background:#0c1324;font:12px "JetBrains Mono";position:relative}
+.node b{display:block;font:600 15px Inter;margin-bottom:4px} .arrowline{height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);position:relative;animation:flow 2s linear infinite}
+.node small{color:var(--muted)}
+.arch-caption{display:flex;justify-content:space-between;margin-top:28px;color:var(--muted);font-size:13px}
+.timeline{position:relative;margin-left:10px;padding-left:38px;border-left:1px solid var(--line)}
+.titem{position:relative;padding:0 0 48px} .titem:before{content:"";position:absolute;left:-44px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);box-shadow:0 0 18px rgba(96,165,250,.6)}
+.tdate{font:11px "JetBrains Mono";color:var(--cyan)} .titem h3{font-size:22px;margin:7px 0 2px} .titem .company{color:#b5c1d5;font-size:14px} .titem p{color:var(--muted);margin-top:9px;max-width:620px}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skillbox{border:1px solid var(--line);border-radius:18px;padding:21px;background:rgba(255,255,255,.015)} .skillbox h3{font-size:14px;margin-bottom:14px} .skillbox div{display:flex;flex-wrap:wrap;gap:7px} .skillbox span{font:11px "JetBrains Mono";color:#9aa8bf;padding:6px 8px;background:#0c1324;border-radius:7px}
+.learn{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} .lesson{padding:25px;border-top:1px solid var(--line)} .lesson b{font:11px "JetBrains Mono";color:var(--cyan)} .lesson h3{font-size:17px;margin:17px 0 7px} .lesson p{font-size:13px;color:var(--muted)}
+.contact{padding:120px 0 80px} .contact-box{border:1px solid var(--line);border-radius:30px;padding:70px 55px;text-align:center;background:radial-gradient(circle at 50% 0%,rgba(96,165,250,.1),transparent 50%),#0a1020} .contact-box h2{font-size:clamp(48px,8vw,100px)} .contact-box p{color:var(--muted);max-width:550px;margin:20px auto 30px}
+footer{padding:28px 0 50px;color:#657188;font:11px "JetBrains Mono";display:flex;justify-content:space-between}
+.terminal-section .terminal{max-width:900px;margin:auto;transform:none} #cli{height:280px;overflow:auto} #command{background:transparent;border:0;outline:0;color:white;font:13px "JetBrains Mono";width:70%}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease} .reveal.show{opacity:1;transform:none}
+@keyframes pulse{50%{transform:scale(1.35);opacity:.6}} @keyframes blink{50%{opacity:0}} @keyframes flow{0%{opacity:.25;transform:scaleX(.7)}50%{opacity:1}100%{opacity:.25;transform:scaleX(.7)}}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:45px}.terminal{transform:none}.stats,.skills,.learn{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}.arch-flow{grid-template-columns:1fr}.arrowline{display:none}.navlinks{display:none}.section-head{display:block}}
+@media(max-width:560px){.container{width:min(100% - 28px,var(--max))}.stats,.skills,.learn{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.hero{padding-top:120px}.contact-box{padding:45px 22px}footer{display:block}footer span{display:block;margin-top:7px}}
+
+.journey{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(145deg,rgba(15,23,42,.9),rgba(7,11,22,.92));box-shadow:0 25px 80px rgba(0,0,0,.25)}
+.journey-intro{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:11px "JetBrains Mono";color:#708099;border-bottom:1px solid var(--line);padding-bottom:22px}
+.journey-intro strong{margin-left:auto;color:#e5eefc;font:500 13px Inter}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green);animation:pulse 1.5s infinite}
+.trace{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr;align-items:center;padding:42px 5px 30px}
+.trace-step{padding:20px 10px;border:1px solid transparent;border-radius:17px;transition:.3s;cursor:pointer}
+.trace-step:hover,.trace-step.active{background:rgba(96,165,250,.055);border-color:rgba(96,165,250,.22);transform:translateY(-4px)}
+.trace-icon{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;font:11px "JetBrains Mono";color:var(--cyan);margin-bottom:17px}
+.trace-step h3{font-size:17px;margin-bottom:7px}.trace-step p{font-size:12px;color:var(--muted)}
+.trace-line{height:1px;background:var(--line);position:relative}.trace-line span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));animation:traceMove 2.2s infinite}
+.trace-detail{padding:18px 20px;border:1px solid var(--line);border-radius:15px;background:#080d1b}
+.trace-detail span{font:10px "JetBrains Mono";color:var(--cyan)}.trace-detail p{font-size:13px;color:#a9b6ca;margin-top:6px}
+.engineering-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:18px}
+.idea-card{display:grid;grid-template-columns:auto 1fr;gap:18px;border:1px solid var(--line);border-radius:20px;padding:24px;background:rgba(255,255,255,.018);transition:.3s}
+.idea-card:hover{transform:translateY(-5px);border-color:rgba(167,139,250,.3)}
+.idea-number{font:11px "JetBrains Mono";color:#59677f}.idea-label,.cap-label{font:10px "JetBrains Mono";color:var(--cyan)}
+.idea-card h3{font-size:19px;line-height:1.2;margin:11px 0 8px}.idea-card p{font-size:13px;color:var(--muted)}
+.capabilities{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.capability{display:grid;grid-template-columns:45px 1fr;gap:17px;padding:25px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(14,21,40,.75),rgba(8,12,24,.75));transition:.3s}
+.capability:hover{transform:translateY(-5px);border-color:rgba(103,232,249,.22)}
+.cap-icon{width:42px;height:42px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--cyan);font-size:19px;background:#0b1222}
+.capability h3{font-size:21px;margin:7px 0 7px}.capability p{font-size:13px;color:var(--muted)}
+.stack-strip{margin-top:16px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;display:flex;gap:25px;align-items:center;flex-wrap:wrap}
+.stack-strip>span{font:10px "JetBrains Mono";color:#66758e}.stack-strip div{display:flex;gap:8px;flex-wrap:wrap}.stack-strip b{font:11px "JetBrains Mono";font-weight:400;color:#aebbd0;background:#0b1222;border:1px solid var(--line);padding:6px 8px;border-radius:7px}
+@keyframes traceMove{0%{width:0;opacity:.2}45%{width:100%;opacity:1}75%,100%{width:100%;opacity:.15}}
+@media(max-width:900px){.trace{grid-template-columns:1fr;gap:12px}.trace-line{display:none}.trace-step{display:grid;grid-template-columns:38px 1fr;gap:14px}.trace-icon{grid-row:span 2;margin:0}.engineering-grid,.capabilities{grid-template-columns:1fr}.journey-intro strong{width:100%;margin-left:0}}
+
+
+.ai-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+.ai-loop,.ai-tools,.ai-principle{border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(15,23,42,.82),rgba(7,11,22,.9))}
+.ai-loop{padding:25px}.ai-loop-head{display:flex;align-items:center;gap:9px;font:10px "JetBrains Mono";color:#6f7e97;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.ai-step{display:grid;grid-template-columns:42px 1fr;gap:15px;padding:16px 12px;border:1px solid transparent;border-radius:14px;transition:.3s}
+.ai-step:hover,.ai-step.active{background:rgba(96,165,250,.05);border-color:rgba(96,165,250,.18)}
+.ai-step>b{font:11px "JetBrains Mono";color:var(--cyan);padding-top:2px}.ai-step strong{display:block;font-size:15px}.ai-step span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.ai-connector{width:1px;height:16px;background:linear-gradient(var(--blue),transparent);margin-left:32px}
+.ai-side{display:grid;gap:16px}
+.ai-tools{padding:25px}.ai-label,.ai-principle>span{font:10px "JetBrains Mono";color:var(--cyan)}
+.ai-tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.ai-tool{display:flex;align-items:center;gap:11px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#0a1121;transition:.3s}
+.ai-tool:hover{transform:translateY(-3px);border-color:rgba(167,139,250,.28)}
+.ai-orb{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#18243d,#0b1222);border:1px solid var(--line);font:11px "JetBrains Mono";color:#c4b5fd}
+.ai-tool strong{display:block;font-size:12px}.ai-tool small{display:block;color:#687791;font-size:9px;margin-top:3px;line-height:1.35}
+.ai-principle{padding:25px}.ai-principle p{font-size:23px;line-height:1.2;letter-spacing:-.03em;margin:14px 0 22px;max-width:480px}
+.ai-equation{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:10px "JetBrains Mono";color:#8190a8}.ai-equation b{color:#64748b}.ai-equation strong{color:var(--green)}
+.ai-capabilities{margin-top:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 20px;border:1px solid var(--line);border-radius:17px}
+.ai-capabilities>span{font:10px "JetBrains Mono";color:#64748b;margin-right:5px}.ai-capabilities b{font:10px "JetBrains Mono";font-weight:400;color:#aab8ce;background:#0b1222;border:1px solid var(--line);padding:7px 9px;border-radius:7px}
+@media(max-width:850px){.ai-layout{grid-template-columns:1fr}.ai-tool-grid{grid-template-columns:1fr}.ai-principle p{font-size:20px}}
+
+</style>
+</head>
+<body>
+<div id="grid"></div><div id="glow"></div><div class="noise"></div>
+
+<nav>
+  <a class="logo" href="#home">SS<span style="color:#64748b">.</span></a>
+  <div class="navlinks"><a href="#work">Work</a><a href="#architecture">Architecture</a><a href="#skills">Skills</a><a href="#ai">AI</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <a class="navbtn" href="#terminal">Terminal ↗</a>
+</nav>
+
+<main id="home">
+<section class="hero">
+<div class="container hero-grid">
+  <div class="reveal">
+    <div class="eyebrow"><span class="dot"></span> AVAILABLE FOR OPPORTUNITIES</div>
+    <h1>Building <span class="gradient">useful software.</span></h1>
+    <p>I'm <b>Shreedhar Suragond</b>, a software engineer focused on frontend systems, backend services, APIs and product experiences that scale.</p>
+    <div class="actions">
+      <a class="btn primary magnetic" href="#work">View my work <span>↗</span></a>
+      <a class="btn magnetic" href="#contact">Let's talk</a>
+    </div>
+    <div class="meta"><span>React</span><span>SvelteKit</span><span>TypeScript</span><span>Go</span></div>
+  </div>
+  <div class="terminal reveal">
+    <div class="termbar"><i></i><i></i><i></i><span class="term-title">shreedhar@portfolio ~</span></div>
+    <div class="term-body" id="heroTerminal"></div>
+  </div>
+</div>
+</section>
+
+<section class="container stats reveal">
+  <div class="stat"><strong>6+</strong><span>Projects shipped</span></div>
+  <div class="stat"><strong>1+</strong><span>Years experience</span></div>
+  <div class="stat"><strong>4+</strong><span>Frontend ecosystems</span></div>
+  <div class="stat"><strong>∞</strong><span>Things still learning</span></div>
+</section>
+
+<section id="work" class="section">
+<div class="container">
+ <div class="section-head reveal"><div><div class="kicker">01 / SELECTED WORK</div><h2>Products I've built.</h2></div><p>Real product work, focused on reusable architecture, complex interfaces and maintainable systems.</p></div>
+ <div class="projects">
+<article class="card reveal tilt"><span class="project-no">05</span><span class="arrow">↗</span><h3>NYC - Mental Health Connect</h3><p>Mental health awareness application built with Angular, connecting people with accessible information, resources and location-aware experiences.</p><div class="tags"><span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">Google Maps API</span><span class="tag">Map SDKs</span></div></article><article class="card reveal tilt"><span class="project-no">01</span><span class="arrow">↗</span><h3>DYP Form Builder</h3><p>Dynamic enterprise form builder with reusable sections, state management and configurable workflows.</p><div class="tags"><span class="tag">React</span><span class="tag">MobX</span><span class="tag">Redux Toolkit</span><span class="tag">MUI</span></div></article><article class="card reveal tilt"><span class="project-no">02</span><span class="arrow">↗</span><h3>Reuters Connect</h3><p>Production-focused frontend work for a large-scale content platform and complex user workflows.</p><div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Enterprise UI</span></div></article><article class="card reveal tilt"><span class="project-no">03</span><span class="arrow">↗</span><h3>Inspiron Form Builder</h3><p>Reusable form-building experiences designed around configurable components and maintainable UI architecture.</p><div class="tags"><span class="tag">React</span><span class="tag">Forms</span><span class="tag">Component Architecture</span></div></article><article class="card reveal tilt"><span class="project-no">04</span><span class="arrow">↗</span><h3>HRMS</h3><p>HR platform focused on dynamic forms, document generation, signatures and payroll workflows.</p><div class="tags"><span class="tag">SvelteKit</span><span class="tag">Go</span><span class="tag">APIs</span></div></article><article class="card reveal tilt"><span class="project-no">06</span><span class="arrow">↗</span><h3>Lead Generation Platform</h3><p>Lead generation application built with React and Node.js, using Strapi as a headless CMS to manage and deliver content through a flexible API-driven architecture.</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Strapi</span><span class="tag">Headless CMS</span></div></article>
+ </div>
+</div>
+</section>
+
+<section id="architecture" class="section">
+<div class="container">
+ <div class="section-head reveal"><div><div class="kicker">02 / ENGINEERING</div><h2>How the pieces connect.</h2></div><p>Think in systems, not isolated screens. Frontend, API, services and data working together.</p></div>
+ <div class="arch reveal">
+  <div class="arch-flow">
+   <div class="node"><b>Client</b><small>React / SvelteKit</small></div><div class="arrowline"></div>
+   <div class="node"><b>API Layer</b><small>Go / REST</small></div><div class="arrowline"></div>
+   <div class="node"><b>Data</b><small>Services / DB</small></div>
+  </div>
+  <div class="arch-caption"><span>request → business logic → persistence</span><span>designed for change</span></div>
+ </div>
+</div>
+</section>
+
+
+
+<section id="engineering" class="section">
+<div class="container">
+ <div class="section-head reveal">
+  <div><div class="kicker">03 / HOW I ENGINEER</div><h2>From idea to production.</h2></div>
+  <p>Don't just look at the stack. Follow what happens when a real user presses a button.</p>
+ </div>
+
+ <div class="journey reveal">
+   <div class="journey-intro">
+     <span class="live-dot"></span>
+     <span>LIVE REQUEST TRACE</span>
+     <strong id="traceLabel">User submits a request</strong>
+   </div>
+
+   <div class="trace">
+     <div class="trace-step active" data-title="User submits a request" data-detail="The interface validates input and creates a clean request boundary.">
+       <div class="trace-icon">01</div>
+       <h3>Intent</h3>
+       <p>Interaction becomes a predictable request.</p>
+     </div>
+     <div class="trace-line"><span></span></div>
+     <div class="trace-step" data-title="Traffic reaches the edge" data-detail="Nginx handles the edge, routing and connection concerns before the application sees the request.">
+       <div class="trace-icon">02</div>
+       <h3>Edge</h3>
+       <p>Routing, TLS and traffic enter through one controlled boundary.</p>
+     </div>
+     <div class="trace-line"><span></span></div>
+     <div class="trace-step" data-title="Business logic executes" data-detail="The backend owns rules, validation, authorization and domain behaviour.">
+       <div class="trace-icon">03</div>
+       <h3>Service</h3>
+       <p>Business rules live where they can be tested and evolved.</p>
+     </div>
+     <div class="trace-line"><span></span></div>
+     <div class="trace-step" data-title="Data is read or changed" data-detail="Persistent data and fast-access state are used deliberately instead of making every request expensive.">
+       <div class="trace-icon">04</div>
+       <h3>Data</h3>
+       <p>Persistence, caching and consistency become engineering decisions.</p>
+     </div>
+     <div class="trace-line"><span></span></div>
+     <div class="trace-step" data-title="Software reaches production" data-detail="The same system becomes a deployable artifact through containers and an automated delivery path.">
+       <div class="trace-icon">05</div>
+       <h3>Ship</h3>
+       <p>Build, package, deploy, observe — then improve.</p>
+     </div>
+   </div>
+
+   <div class="trace-detail">
+     <span>WHAT'S HAPPENING</span>
+     <p id="traceDetail">The interface validates input and creates a clean request boundary.</p>
+   </div>
+ </div>
+
+ <div class="engineering-grid">
+   <article class="idea-card reveal">
+     <div class="idea-number">01</div>
+     <div>
+       <span class="idea-label">SYSTEM THINKING</span>
+       <h3>Design for the next change.</h3>
+       <p>I care about boundaries: what belongs in the UI, what belongs in a service, what should be cached, and what should remain the source of truth.</p>
+     </div>
+   </article>
+
+   <article class="idea-card reveal">
+     <div class="idea-number">02</div>
+     <div>
+       <span class="idea-label">PRODUCTION MINDSET</span>
+       <h3>Code is only the beginning.</h3>
+       <p>A feature isn't finished when it works locally. It needs configuration, containers, networking, deployment and a path to recover when reality disagrees.</p>
+     </div>
+   </article>
+
+   <article class="idea-card reveal">
+     <div class="idea-number">04</div>
+     <div>
+       <span class="idea-label">INTEGRATIONS</span>
+       <h3>Connect products to real-world services.</h3>
+       <p>Maps, location data and managed backend platforms can turn a web interface into a useful product experience — with Google Maps APIs, Map SDKs, Firebase and Supabase.</p>
+     </div>
+   </article>
+
+<article class="idea-card reveal">
+     <div class="idea-number">03</div>
+     <div>
+       <span class="idea-label">ENGINEERING TRADE-OFFS</span>
+       <h3>Simple first. Scale with evidence.</h3>
+       <p>I prefer understandable systems, then introduce queues, caching, async processing or service separation when the problem actually calls for them.</p>
+     </div>
+   </article>
+ </div>
+</div>
+</section>
+
+
+
+<section id="ai" class="section">
+<div class="container">
+ <div class="section-head reveal">
+   <div><div class="kicker">04 / AI-ASSISTED ENGINEERING</div><h2>AI is my copilot,<br>not my autopilot.</h2></div>
+   <p>I use AI to move faster through exploration, implementation and problem solving — while keeping engineering judgment, review and ownership with me.</p>
+ </div>
+
+ <div class="ai-layout">
+   <div class="ai-loop reveal">
+     <div class="ai-loop-head"><span class="live-dot"></span><span>MY DEVELOPMENT LOOP</span></div>
+     <div class="ai-step active"><b>01</b><div><strong>Explore</strong><span>Understand unfamiliar code and break down problems.</span></div></div>
+     <div class="ai-connector"></div>
+     <div class="ai-step"><b>02</b><div><strong>Build</strong><span>Prototype implementations and accelerate repetitive work.</span></div></div>
+     <div class="ai-connector"></div>
+     <div class="ai-step"><b>03</b><div><strong>Review</strong><span>Challenge the output, inspect assumptions and improve the design.</span></div></div>
+     <div class="ai-connector"></div>
+     <div class="ai-step"><b>04</b><div><strong>Test</strong><span>Validate behaviour instead of trusting generated code blindly.</span></div></div>
+     <div class="ai-connector"></div>
+     <div class="ai-step"><b>05</b><div><strong>Ship</strong><span>The final decision and production ownership stay with the engineer.</span></div></div>
+   </div>
+
+   <div class="ai-side reveal">
+     <div class="ai-tools">
+       <span class="ai-label">TOOLS I USE</span>
+       <div class="ai-tool-grid">
+         <div class="ai-tool"><span class="ai-orb">C</span><div><strong>Claude Code</strong><small>Codebase exploration & implementation</small></div></div>
+         <div class="ai-tool"><span class="ai-orb">Cu</span><div><strong>Cursor</strong><small>AI-assisted coding workflow</small></div></div>
+         <div class="ai-tool"><span class="ai-orb">G</span><div><strong>ChatGPT</strong><small>Reasoning, debugging & exploration</small></div></div>
+         <div class="ai-tool"><span class="ai-orb">A</span><div><strong>Antigravity</strong><small>AI-assisted development workflow</small></div></div>
+       </div>
+     </div>
+
+     <div class="ai-principle">
+       <span>ENGINEERING RULE</span>
+       <p>Use AI to accelerate the work — never outsource understanding.</p>
+       <div class="ai-equation"><span>AI speed</span><b>+</b><span>Human judgment</span><b>+</b><span>Testing</span><b>→</b><strong>Production</strong></div>
+     </div>
+   </div>
+ </div>
+
+ <div class="ai-capabilities reveal">
+   <span>AI helps me with</span>
+   <b>Code generation</b><b>Refactoring</b><b>Debugging</b><b>Tests</b><b>Documentation</b>
+   <b>Code review</b><b>Architecture discussions</b><b>SQL</b><b>DevOps troubleshooting</b><b>Git workflows</b>
+ </div>
+</div>
+</section>
+
+<section id="skills" class="section">
+<div class="container">
+ <div class="section-head reveal">
+   <div><div class="kicker">05 / CAPABILITY MAP</div><h2>What I can own.</h2></div>
+   <p>Technology is the material. These are the engineering problems I want to solve with it.</p>
+ </div>
+
+ <div class="capabilities">
+   <div class="capability reveal">
+     <span class="cap-icon">↗</span>
+     <div><span class="cap-label">BUILD</span><h3>Product interfaces</h3><p>Complex forms, workflows, reusable components and responsive experiences that stay maintainable as features grow.</p></div>
+   </div>
+   <div class="capability reveal">
+     <span class="cap-icon">⌁</span>
+     <div><span class="cap-label">SERVE</span><h3>Backend systems</h3><p>APIs, domain logic, authentication, realtime flows and background work with clear responsibilities.</p></div>
+   </div>
+   <div class="capability reveal">
+     <span class="cap-icon">◇</span>
+     <div><span class="cap-label">MODEL</span><h3>Data & performance</h3><p>Schema design, transactions, caching and query behaviour treated as part of the product rather than an afterthought.</p></div>
+   </div>
+   <div class="capability reveal">
+     <span class="cap-icon">△</span>
+     <div><span class="cap-label">OPERATE</span><h3>Production delivery</h3><p>Containerized services, reverse proxies, Linux environments and repeatable delivery paths from commit to deployment.</p></div>
+   </div>
+ </div>
+
+ <div class="stack-strip reveal">
+   <span>CURRENT TOOLBOX</span>
+   <div><b>React</b><b>Angular</b><b>SvelteKit</b><b>TypeScript</b><b>Go</b><b>Node.js</b><b>PostgreSQL</b><b>Redis</b><b>Firebase</b><b>Supabase</b><b>Google Maps API</b><b>Map SDKs</b><b>Docker</b><b>Nginx</b><b>Linux</b></div>
+ </div>
+</div>
+</section>
+
+
+<section class="section">
+<div class="container">
+ <div class="section-head reveal"><div><div class="kicker">06 / PRINCIPLES</div><h2>How I think about software.</h2></div></div>
+ <div class="learn">
+  <div class="lesson reveal"><b>01</b><h3>Understand first</h3><p>Break complex requirements into smaller systems and clear user flows.</p></div>
+  <div class="lesson reveal"><b>02</b><h3>Design for reuse</h3><p>Prefer reusable components and patterns over copy-paste implementations.</p></div>
+  <div class="lesson reveal"><b>03</b><h3>Keep boundaries clear</h3><p>Separate UI, business logic, APIs and data responsibilities.</p></div>
+  <div class="lesson reveal"><b>04</b><h3>Ship and improve</h3><p>Build production-focused software, learn from it and iterate.</p></div>
+ </div>
+</div>
+</section>
+
+<section id="experience" class="section">
+<div class="container">
+ <div class="section-head reveal"><div><div class="kicker">07 / JOURNEY</div><h2>Experience & growth.</h2></div></div>
+ <div class="timeline">
+<div class="titem reveal"><div class="tdate">2025 – Present</div><h3>Software Developer</h3><div class="company">Inspiron Labs</div><p>Building enterprise web applications and reusable product systems.</p></div><div class="titem reveal"><div class="tdate">2024</div><h3>Web Development Intern</h3><div class="company">Grid Controller of India</div><p>Worked on web technology and application development.</p></div><div class="titem reveal"><div class="tdate">2024</div><h3>Full Stack Intern</h3><div class="company">TekkyBench</div><p>Worked across frontend and backend development.</p></div><div class="titem reveal"><div class="tdate">2020</div><h3>B.E. Computer Science</h3><div class="company"></div><p>Computer Science engineering foundation.</p></div>
+ </div>
+</div>
+</section>
+
+<section id="terminal" class="section terminal-section">
+<div class="container">
+ <div class="section-head reveal"><div><div class="kicker">08 / INTERACTIVE</div><h2>Talk to my terminal.</h2></div><p>Try <code>help</code>, <code>projects</code>, <code>architecture</code>, <code>devops</code>, <code>leadgen</code> or <code>project leadgen</code>.</p></div>
+ <div class="terminal reveal">
+  <div class="termbar"><i></i><i></i><i></i><span class="term-title">interactive-shell</span></div>
+  <div class="term-body" id="cli"><div id="output"><span class="dim">Type "help" to get started.</span></div><br><span class="prompt">$ </span><input id="command" autocomplete="off" autofocus></div>
+ </div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container">
+ <div class="contact-box reveal">
+  <div class="kicker">09 / CONTACT</div>
+  <h2>Let's build<br><span class="gradient">something useful.</span></h2>
+  <p>Have an interesting problem, product idea or opportunity? I'd love to hear about it.</p>
+  <div class="actions" style="justify-content:center">
+    <a class="btn primary magnetic" href="mailto:your.email@example.com">Email me ↗</a>
+    <a class="btn magnetic" href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
+    <a class="btn magnetic" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+  </div>
+ </div>
+</div>
+</section>
+</main>
+
+<footer class="container"><span>© 2026 Shreedhar Suragond</span><span>Built with curiosity · React mindset · SvelteKit energy · Go backend thinking</span></footer>
+
+<script>
+const glow=document.getElementById('glow');
+window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('.card').forEach(card=>{
+ card.addEventListener('pointermove',e=>{
+   const r=card.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+   card.style.setProperty('--x',x+'px');card.style.setProperty('--y',y+'px');
+ });
+});
+document.querySelectorAll('.tilt').forEach(card=>{
+ card.addEventListener('pointermove',e=>{
+   if(innerWidth<850)return;
+   const r=card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+   card.style.transform=`perspective(800px) rotateX(${-y*4}deg) rotateY(${x*5}deg) translateY(-7px)`;
+ });
+ card.addEventListener('pointerleave',()=>card.style.transform='');
+});
+document.querySelectorAll('.magnetic').forEach(el=>{
+ el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px)`});
+ el.addEventListener('pointerleave',()=>el.style.transform='');
+});
+
+
+document.querySelectorAll('.trace-step').forEach(step=>{
+  step.addEventListener('click',()=>{
+    document.querySelectorAll('.trace-step').forEach(s=>s.classList.remove('active'));
+    step.classList.add('active');
+    document.getElementById('traceLabel').textContent=step.dataset.title;
+    document.getElementById('traceDetail').textContent=step.dataset.detail;
+  });
+});
+
+const heroLines=[
+ '$ whoami',
+ '> Shreedhar Suragond',
+ '',
+ '$ status',
+ '> <span class="ok">ONLINE</span>',
+ '',
+ '$ stack',
+ '> React        <span class="ok">✓</span>',
+ '> SvelteKit    <span class="ok">✓</span>',
+ '> TypeScript   <span class="ok">✓</span>',
+ '> Go           <span class="ok">✓</span>',
+ '',
+ '$ mission',
+ '> build → ship → learn → repeat <span class="cursor"></span>'
+];
+const ht=document.getElementById('heroTerminal');
+let hi=0;
+function typeHero(){
+ if(hi>=heroLines.length)return;
+ const line=heroLines[hi++];
+ ht.innerHTML+=line+'<br>';
+ setTimeout(typeHero,line===''?120:80);
+}
+setTimeout(typeHero,500);
+
+const out=document.getElementById('output'), cmd=document.getElementById('command');
+const responses={
+  help:`Available commands:
+
+  about          → professional overview
+  projects       → complete project portfolio
+  project leadgen→ Lead Generation Platform details
+  project hrms   → HRMS details
+  project dyp    → DYP Form Builder details
+  project nyc    → NYC Mental Health Connect details
+  skills         → technical skill map
+  stack          → current technology stack
+  architecture   → system architecture
+  systemdesign   → system design approach
+  frontend       → frontend engineering
+  backend        → backend engineering
+  api            → APIs and integrations
+  database       → database approach
+  devops         → production and infrastructure
+  docker         → Docker workflow
+  linux          → Linux/server approach
+  cicd           → CI/CD pipeline
+  ai             → AI-assisted engineering
+  experience     → professional experience
+  journey        → engineering journey
+  forms          → form-builder expertise
+  integrations   → external integrations
+  philosophy     → engineering principles
+  contact        → contact information
+  clear          → clear terminal
+
+Try: project leadgen, architecture, devops, or systemdesign`,
+
+  about:`> Shreedhar Suragond
+
+Software engineer focused on frontend systems, backend services, APIs and product architecture.
+
+Core focus:
+  • Frontend engineering
+  • Backend APIs
+  • Reusable architecture
+  • System design
+  • Integrations
+  • Containerized deployment
+  • AI-assisted development
+
+Engineering loop:
+  Understand → Design → Build → Test → Ship → Improve`,
+
+  projects:`SELECTED PROJECTS
+
+  01  DYP Form Builder
+      React · MobX · Redux Toolkit · MUI
+      Dynamic enterprise form builder with reusable sections,
+      state management and configurable workflows.
+
+  02  Reuters Connect
+      React · TypeScript · Enterprise UI
+      Production-focused frontend work for a large-scale
+      content platform and complex user workflows.
+
+  03  Inspiron Form Builder
+      React · Forms · Component Architecture
+      Reusable form-building experiences designed around
+      configurable components and maintainable UI architecture.
+
+  04  HRMS
+      SvelteKit · Go · APIs
+      HR platform focused on dynamic forms, document generation,
+      signatures and payroll workflows.
+
+  05  NYC - Mental Health Connect
+      Angular · TypeScript · Google Maps API · Map SDKs
+      Mental health awareness application with accessible
+      information, resources and location-aware experiences.
+
+  06  Lead Generation Platform
+      React · Node.js · Strapi · Headless CMS
+      Lead generation application using Strapi to manage and
+      deliver content through a flexible API-driven architecture.`,
+
+  skills:`TECHNICAL SKILLS
+
+  Frontend
+    React · Angular · SvelteKit · TypeScript
+    MobX · Redux Toolkit · MUI
+    Forms · Component Architecture · Enterprise UI
+
+  Backend
+    Node.js · Go · REST APIs
+    Business Logic · Authentication · Background Work
+
+  Data
+    PostgreSQL · Redis
+    Schema Design · Transactions · Caching · Query Behaviour
+
+  Integrations
+    Strapi · Firebase · Supabase
+    Google Maps API · Map SDKs
+
+  DevOps
+    Docker · Nginx · Linux · CI/CD
+    Networking · Environment Configuration
+    Containerized Deployment`,
+
+  stack:`CURRENT TOOLBOX
+
+  React          Angular        SvelteKit
+  TypeScript     Node.js        Go
+  PostgreSQL     Redis           Strapi
+  Firebase       Supabase        Google Maps API
+  Docker         Nginx          Linux
+
+  Engineering style:
+  reusable components + clear boundaries + production delivery`,
+
+  architecture:`SYSTEM ARCHITECTURE
+
+              ┌─────────────────────┐
+              │       Client        │
+              │ React / SvelteKit   │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │      API Layer      │
+              │     REST / Go       │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │      Services       │
+              │ Business / Domain   │
+              └──────────┬──────────┘
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │    Data / Storage   │
+              │ PostgreSQL / Redis  │
+              └─────────────────────┘
+
+  Keep UI, business logic, APIs and data responsibilities clear.
+  Add caching, async processing or service separation when needed.`,
+
+  systemdesign:`SYSTEM DESIGN APPROACH
+
+  01. Understand the user flow
+      Identify inputs, outputs and important state transitions.
+
+  02. Define boundaries
+      Separate UI concerns from business logic and persistence.
+
+  03. Design the API
+      Keep request/response contracts predictable and maintainable.
+
+  04. Model the data
+      Consider schemas, relationships, indexes and consistency.
+
+  05. Think about performance
+      Use caching, pagination and efficient queries when useful.
+
+  06. Design for operations
+      Configuration, containers, networking, deployment and recovery
+      are part of the system.
+
+  07. Ship incrementally
+      Start simple, measure behaviour and add complexity only when
+      the product actually needs it.`,
+
+  frontend:`FRONTEND ENGINEERING
+
+  Ecosystems:
+    React · Angular · SvelteKit
+
+  Focus:
+    • Complex forms and workflows
+    • Reusable components
+    • State management
+    • Enterprise UI
+    • Responsive experiences
+    • API-driven interfaces
+    • Maintainable component architecture
+
+  Principle:
+  Build interfaces that remain understandable as features grow.`,
+
+  backend:`BACKEND ENGINEERING
+
+  Technologies:
+    Node.js · Go
+
+  Responsibilities:
+    • REST APIs
+    • Business logic
+    • Validation
+    • Authentication
+    • Domain behaviour
+    • Background processing
+    • Data access
+    • External integrations
+
+  Boundary:
+    UI → API → Business Logic → Data
+
+  Goal:
+  Keep backend responsibilities explicit and testable.`,
+
+  api:`API & INTEGRATION LAYER
+
+  Patterns:
+    REST
+    Request validation
+    Predictable response contracts
+    Service boundaries
+    External API integration
+
+  Portfolio integrations:
+    • Google Maps API
+    • Map SDKs
+    • Firebase
+    • Supabase
+    • Strapi Headless CMS
+
+  Principle:
+  Keep provider-specific logic behind clear application boundaries.`,
+
+  database:`DATA ENGINEERING
+
+  PostgreSQL
+    • Relational data modelling
+    • Transactions
+    • Query behaviour
+    • Persistence
+
+  Redis
+    • Fast-access state
+    • Caching
+    • Performance-sensitive workloads
+
+  Approach:
+  Treat data modelling, consistency and query performance as part
+  of product design — not an afterthought.`,
+
+  devops:`DEVOPS & PRODUCTION
+
+  Development
+      ↓
+  Build
+      ↓
+  Containerize
+      ↓
+  Configure
+      ↓
+  Deploy
+      ↓
+  Observe
+      ↓
+  Improve
+
+  Technologies:
+    Docker · Nginx · Linux · CI/CD
+
+  Production concerns:
+    • Environment configuration
+    • Reverse proxy
+    • Networking
+    • Containerized services
+    • Repeatable deployment
+    • Recovery paths
+
+  Rule:
+  A feature is not finished just because it works locally.`,
+
+  docker:`DOCKER WORKFLOW
+
+  Source Code
+      ↓
+  Build Application
+      ↓
+  Create Container Image
+      ↓
+  Configure Environment
+      ↓
+  Run Container
+      ↓
+  Connect Services
+      ↓
+  Reverse Proxy / Nginx
+      ↓
+  Deploy
+
+  Goal:
+  Reproducible environments, isolated services and a consistent
+  path from development to production.`,
+
+  linux:`LINUX / SERVER
+
+  Focus:
+    • Application processes
+    • Environment configuration
+    • Networking
+    • Containers
+    • Reverse proxies
+    • Deployment workflows
+    • Troubleshooting
+
+  Production mindset:
+  Understand what is running, where it is running, how services
+  communicate and how the system recovers when something fails.`,
+
+  cicd:`CI/CD PIPELINE
+
+  Developer
+      ↓
+  Git commit
+      ↓
+  CI validation
+      ↓
+  Build
+      ↓
+  Container image
+      ↓
+  Deployment
+      ↓
+  Application running
+
+  Goal:
+  Reduce manual deployment work and create a repeatable path
+  from source code to production.`,
+
+  ai:`AI-ASSISTED ENGINEERING
+
+  01  Explore
+      Understand unfamiliar code and break down problems.
+
+  02  Build
+      Prototype implementations and accelerate repetitive work.
+
+  03  Review
+      Challenge generated output and inspect assumptions.
+
+  04  Test
+      Validate behaviour instead of trusting generated code blindly.
+
+  05  Ship
+      Final engineering decisions and production ownership stay
+      with the engineer.
+
+  Tools:
+    Claude Code · Cursor · ChatGPT · Antigravity
+
+  AI helps with:
+    Code generation · Refactoring · Debugging · Tests
+    Documentation · Code review · Architecture · SQL
+    DevOps troubleshooting · Git workflows`,
+
+  experience:`EXPERIENCE
+
+  2025 – Present
+    Software Developer @ Inspiron Labs
+    Building enterprise web applications and reusable product systems.
+
+  2024
+    Web Development Intern @ Grid Controller of India
+    Worked on web technology and application development.
+
+  2024
+    Full Stack Intern @ TekkyBench
+    Worked across frontend and backend development.`,
+
+  journey:`ENGINEERING JOURNEY
+
+  Foundations
+      ↓
+  Frontend Development
+      ↓
+  Enterprise UI & Forms
+      ↓
+  Backend APIs
+      ↓
+  System Design
+      ↓
+  Integrations
+      ↓
+  DevOps & Production
+      ↓
+  AI-Assisted Engineering
+
+  Current direction:
+  Build useful software → understand the system → ship it properly.`,
+
+  leadgen:`LEAD GENERATION PLATFORM
+
+  Architecture:
+
+  React
+      ↓
+  Node.js
+      ↓
+  Strapi Headless CMS
+      ↓
+  Content / Lead Data
+
+  Frontend
+    React-based product interface.
+
+  Backend
+    Node.js application layer handling application behaviour
+    and communication with backend services.
+
+  CMS
+    Strapi provides a flexible headless CMS layer for managing
+    and delivering content through APIs.
+
+  Engineering angle:
+    • API-driven architecture
+    • Headless CMS integration
+    • Separation of presentation and content management
+    • Flexible content delivery
+    • React + Node.js full-stack workflow`,
+
+  hrms:`HRMS
+
+  Stack:
+    SvelteKit · Go · APIs
+
+  Product focus:
+    • Dynamic forms
+    • Document generation
+    • Digital signatures
+    • Payroll workflows
+
+  Engineering focus:
+    Frontend workflows
+      ↓
+    API layer
+      ↓
+    Business services
+      ↓
+    Data / persistence`,
+
+  forms:`FORM-BUILDING SYSTEMS
+
+  DYP Form Builder
+    React · MobX · Redux Toolkit · MUI
+
+  Inspiron Form Builder
+    React · Forms · Component Architecture
+
+  Common themes:
+    • Reusable sections
+    • Configurable components
+    • State management
+    • Dynamic workflows
+    • Maintainable UI architecture`,
+
+  integrations:`INTEGRATIONS
+
+  Google Maps API
+    Location-aware product experiences.
+
+  Map SDKs
+    Map-based interfaces and location features.
+
+  Firebase
+    Managed backend platform integration.
+
+  Supabase
+    Managed backend and data capabilities.
+
+  Strapi
+    Headless CMS and API-driven content delivery.
+
+  Rule:
+  Keep external providers behind clean application boundaries.`,
+
+  philosophy:`ENGINEERING PRINCIPLES
+
+  01  Understand first
+      Break complex requirements into smaller systems and clear flows.
+
+  02  Design for reuse
+      Prefer reusable components and patterns over duplication.
+
+  03  Keep boundaries clear
+      Separate UI, business logic, APIs and data responsibilities.
+
+  04  Simple first
+      Introduce queues, caching or service separation when evidence
+      shows the problem actually requires them.
+
+  05  Ship and improve
+      Production software is a continuous learning loop.`,
+
+  contact:`CONTACT
+
+  Email:
+    Replace the placeholder email in the portfolio HTML.
+
+  GitHub:
+    Replace the placeholder GitHub URL.
+
+  LinkedIn:
+    Replace the placeholder LinkedIn URL.
+
+  Status:
+    AVAILABLE FOR OPPORTUNITIES`,
+
+  'project leadgen':`LEAD GENERATION PLATFORM
+
+  Stack:
+    React · Node.js · Strapi · Headless CMS
+
+  Architecture:
+    React
+      ↓
+    Node.js
+      ↓
+    Strapi Headless CMS
+      ↓
+    Content / Lead Data
+
+  Focus:
+    API-driven architecture
+    Flexible content management
+    Headless CMS integration
+    Separation of presentation and content management`,
+
+  'project hrms':`HRMS
+
+  Stack:
+    SvelteKit · Go · APIs
+
+  Focus:
+    Dynamic forms · Document generation · Signatures · Payroll workflows.`,
+
+  'project dyp':`DYP FORM BUILDER
+
+  Stack:
+    React · MobX · Redux Toolkit · MUI
+
+  Dynamic enterprise form builder with reusable sections,
+  state management and configurable workflows.`,
+
+  'project nyc':`NYC - MENTAL HEALTH CONNECT
+
+  Stack:
+    Angular · TypeScript · Google Maps API · Map SDKs
+
+  Mental health awareness application with accessible information,
+  resources and location-aware experiences.`
+};
+cmd.addEventListener('keydown',e=>{
+ if(e.key!=='Enter')return;
+ const v=cmd.value.trim().toLowerCase();
+ const line=document.createElement('div'); line.innerHTML='<span class="prompt">$ </span>'+v; out.appendChild(line);
+ if(v==='clear')out.innerHTML='';
+ else {const r=document.createElement('div');r.style.color='#9aa8bf';r.textContent=responses[v]||'command not found — try "help"';r.style.whiteSpace='pre-wrap';out.appendChild(r)}
+ cmd.value=''; document.getElementById('cli').scrollTop=99999;
+});
+</script>
+</body>
+</html>
