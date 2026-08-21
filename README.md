@@ -1,66 +1,103 @@
-<!-- Profile Views Counter -->
-![Profile Views](https://komarev.com/ghpvc/?username=ShreedharSuragond&color=blue)
+# 👋 Hi, I'm Shreedhar Suragond
 
-<h1 align="center">👋 Hi, I'm Shreedhar Suragond</h1>
+**Software Developer · Full Stack Engineer**
+
+I build modern web applications, reusable interfaces, APIs, and production-ready systems.
+
+Currently working with **React, Angular, SvelteKit, Node.js, Go, PostgreSQL and Docker**.
 
 <p align="center">
-  🎓 An enthusiastic and aspiring Full Stack Developer from Bangalore, India 🇮🇳  
-  <br>
-  💻 Passionate about building scalable web applications and solving real-world problems.
+  <a href="https://shreedharsuragond.github.io/ShreedharSuragond/">
+    🌐 <strong>Portfolio</strong>
+  </a>
+  &nbsp; · &nbsp;
+  <a href="https://www.linkedin.com/in/shreedhar-suragond">
+    LinkedIn
+  </a>
+  &nbsp; · &nbsp;
+  <a href="mailto:shreedharsuragonds@gmail.com">
+    Email
+  </a>
 </p>
 
-## 📍 About Me
-
-- 🌱 Currently working In **InspironLabs software system Pvt Ltd, Bengaluru** as Frontend Developer.
-- 👨‍🎓 **Bachelor of Engineering (CSE)** from Government SKSJ Technological Institute, Bangalore (2020 – 2024)
-
-
-## 🔧 Technical Skills
-
-- **Languages:** JavaScript, Basics of Java, Python, SQL
-- **Frontend:** HTML5, CSS3, React.js, Mobx, Redux toolkit
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB  
-- **Tools & Platforms:** Git, GitHub, Postman, REST APIs 
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=ShreedharSuragond&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
+</p>
 
 ---
 
-## 💼 Internships
+### 🧰 Tech Stack
 
-- **Web Development Intern** – Grid Controller of India Ltd, Bengaluru  
-  • Developed Flask-based interfaces, data fetching tools, and visualization dashboards using Pandas and DataTables.
+**Frontend**
 
-- **Full Stack Intern** – TekkyBench, Remote  
-  • Worked on full-stack web development tasks, emphasizing responsive UI design and usability.
+`React` · `Angular` · `SvelteKit` · `TypeScript`
 
----
+**Backend**
 
-## 📜 Certifications
+`Node.js` · `Go` · `REST APIs`
 
-- **MERN Stack Web Development** – JSpiders, Bengaluru (Nov 2024 – Apr 2025)  
-- **Junior Software Developer** – Rooman Technologies, Bengaluru (Dec 2023 – May 2024)
+**Data**
 
----
+`PostgreSQL` · `Redis`
 
-## 📈 GitHub Stats
+**Tools**
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ShreedharSuragond&show_icons=true&theme=radical)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ShreedharSuragond&layout=compact&theme=radical)
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=ShreedharSuragond&theme=radical)
+`Git` · `GitHub` · `Docker` · `Nginx` · `Linux` · `CI/CD`
 
----
+**Integrations**
 
-## 🏆 GitHub Trophies
-
-![Trophies](https://github-profile-trophy.vercel.app/?username=ShreedharSuragond&theme=radical)
+`Strapi` · `Firebase` · `Supabase` · `Google Maps API`
 
 ---
 
-## 📫 Contact Me
+### 🚀 Selected Work
 
-- 📧 Email: [shreedharsuragonds@gmail.com](mailto:shreedharsuragonds@gmail.com)
-- 🔗 LinkedIn: [Shreedhar Suragond](https://www.linkedin.com/in/shreedhar-suragond)
-- 📸 Instagram: [shreedharsuragond](https://www.instagram.com/shreedharsuragond)
+| Project                       | Stack                              |
+| ----------------------------- | ---------------------------------- |
+| **DYP Form Builder**          | React · MobX · Redux Toolkit · MUI |
+| **Reuters Connect**           | React · TypeScript                 |
+| **Inspiron Form Builder**     | React · Forms                      |
+| **HRMS**                      | SvelteKit · Go · APIs              |
+| **NYC Mental Health Connect** | Angular · TypeScript · Maps        |
+| **Lead Generation Platform**  | React · Node.js · Strapi           |
 
 ---
 
+### 🧠 How I Build
+
+```text
+Understand
+    ↓
+Design
+    ↓
+Build
+    ↓
+Test
+    ↓
+Ship
+    ↓
+Improve
+```
+
+I care about **clean architecture, reusable components, clear boundaries and maintainable software**.
+
+---
+
+### 🤖 AI-Assisted Development
+
+`Claude Code` · `Cursor` · `ChatGPT` · `Antigravity`
+
+> AI accelerates the work. Engineering judgment owns the result.
+
+---
+
+<p align="center">
+  🌐
+  <a href="https://shreedharsuragond.github.io/ShreedharSuragond/">
+    <strong>shreedharsuragond.github.io/ShreedharSuragond</strong>
+  </a>
+</p>
+
+<p align="center">
+  <sub>Build · Ship · Learn · Repeat</sub>
+</p>
